@@ -15,8 +15,4 @@ Editor.registerPanel( 'undo-debugger.panel', {
   'undo-debugger:update-undos' ( data ) {
     this.set( 'data', data );
   },
-
-  _isActive ( idx ) {
-    return this.data.position === idx;
-  },
 });

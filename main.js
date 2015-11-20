@@ -16,12 +16,14 @@ module.exports = {
     let result = {
       position: undo._position,
       savePosition: undo._savePosition,
-      groups: undo._groups.map(group => {
+      groups: undo._groups.map((group, index) => {
         return {
           desc: group.desc,
+          selected: undo._position === index,
+          saved: undo._savePosition === index,
           commands: group._commands.map(cmd => {
             return {
-              name: cmd.constructor.toString(),
+              name: cmd.constructor.name,
               dirty: cmd.dirty(),
               info: cmd.info,
             };

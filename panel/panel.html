@@ -18,10 +18,15 @@
         padding: 10px;
 
         background-color: #373737;
+        border-left: 2px solid #373737;
       }
 
-      .group[actived] {
-        border-left: 2px solid #888;
+      .group[selected] {
+        border-left: 2px solid #09f;
+      }
+
+      .group[saved] {
+        border-right: 4px solid #f00;
       }
 
       .command {
@@ -35,7 +40,7 @@
 
     <div class="flex-1 list">
       <template is="dom-repeat" items="{{data.groups}}">
-        <div class="group" actived$="{{_isActive(index)}}">
+        <div class="group" selected$="{{item.selected}}" saved$="{{item.saved}}">
           <div>{{item.desc}}</div>
           <template is="dom-repeat" items="{{item.commands}}">
             <div class="command layout horizontal">
