@@ -1,0 +1,52 @@
+<dom-module id="undo-debugger-panel">
+  <template>
+    <style>
+      :host {
+        @apply(--layout-vertical);
+      }
+
+      .list {
+        padding: 5px;
+        overflow-y: auto;
+      }
+
+      .group {
+        color: #aaa;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        padding: 10px;
+
+        background-color: #373737;
+      }
+
+      .group[actived] {
+        border-left: 2px solid #888;
+      }
+
+      .command {
+        color: #888;
+        font-size: 14px;
+        padding-left: 10px;
+      }
+
+      .command div { margin-left: 5px; }
+    </style>
+
+    <div class="flex-1 list">
+      <template is="dom-repeat" items="{{data.groups}}">
+        <div class="group" actived$="{{_isActive(index)}}">
+          <div>{{item.desc}}</div>
+          <template is="dom-repeat" items="{{item.commands}}">
+            <div class="command layout horizontal">
+              <div>{{item.name}}</div>
+              <div>{{item.dirty}}</div>
+            </div>
+          </template>
+        </dvi>
+      </template>
+    </div>
+  </template>
+
+  <script type="text/javascript" src="panel.js"></script>
+</dom-module>

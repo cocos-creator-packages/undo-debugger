@@ -1,0 +1,8 @@
+{
+  "generator-fireball-package": {
+    "packageName": "undo-debugger",
+    "packageType": "panel",
+    "panelName": "panel",
+    "widgetName": "simple-widget"
+  }
+}

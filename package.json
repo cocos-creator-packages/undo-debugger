@@ -1,0 +1,32 @@
+{
+  "name": "undo-debugger",
+  "version": "0.0.0",
+  "description": "An editor-framework app.",
+  "author": "",
+  "hosts": {
+    "editor-framework": "^0.3.16"
+  },
+  "dependencies": {
+  },
+  "main": "main.js",
+  "menus": {
+    "Developer/Undo Debugger": {
+      "message": "undo-debugger:open"
+    }
+  },
+  "panels": {
+    "panel": {
+      "frame": "panel/panel.html",
+      "type": "dockable",
+      "title": "Undo Debugger",
+      "width": 200,
+      "height": 200,
+      "min-width": 200,
+      "min-height": 200,
+      "shortcuts": {},
+      "messages": [
+        "undo-debugger:update-undos"
+      ]
+    }
+  }
+}
