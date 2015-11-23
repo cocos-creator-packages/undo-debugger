@@ -9,10 +9,34 @@ Editor.registerPanel( 'undo-debugger.panel', {
     }
   },
 
-  ready () {
+  'panel-ready' () {
+    Editor.sendRequestToCore('undo-debugger:query', data => {
+      this.set( 'data', data );
+    });
   },
 
-  'undo-debugger:update-undos' ( data ) {
-    this.set( 'data', data );
+  'undo-debugger:add-group' ( info ) {
+    this.push( 'data.groups', info.group );
+    this.set( 'data.position', info.position );
+    this.set( 'data.savePosition', info.savePosition );
   },
+
+  'undo-debugger:position-changed' ( info ) {
+    this.set( 'data.position', info.position );
+  },
+
+  'undo-debugger:save-position-changed' ( info ) {
+    this.set( 'data.savePosition', info.savePosition );
+  },
+
+  'undo-debugger:clear-redo' ( info ) {
+    this.splice( 'data.groups', info.position+1 );
+    this.set( 'data.position', info.position+1 );
+    this.set( 'data.savePosition', info.savePosition );
+  },
+
+  _indexEqual ( index, position ) {
+    return index === position;
+  },
+
 });

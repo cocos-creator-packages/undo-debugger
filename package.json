@@ -25,7 +25,10 @@
       "min-height": 200,
       "shortcuts": {},
       "messages": [
-        "undo-debugger:update-undos"
+        "undo-debugger:add-group",
+        "undo-debugger:position-changed",
+        "undo-debugger:save-position-changed",
+        "undo-debugger:clear-redo"
       ]
     }
   }

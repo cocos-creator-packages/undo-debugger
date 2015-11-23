@@ -40,7 +40,10 @@
 
     <div class="flex-1 list">
       <template is="dom-repeat" items="{{data.groups}}">
-        <div class="group" selected$="{{item.selected}}" saved$="{{item.saved}}">
+        <div class="group"
+          selected$="{{_indexEqual(index,data.position)}}"
+          saved$="{{_indexEqual(index,data.savePosition)}}"
+          >
           <div>{{item.desc}}</div>
           <template is="dom-repeat" items="{{item.commands}}">
             <div class="command layout horizontal">
