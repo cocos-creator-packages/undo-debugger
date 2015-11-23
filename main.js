@@ -71,6 +71,11 @@ module.exports = {
           savePosition: undo._savePosition,
         }
       );
+    } else if ( type === 'clear' ) {
+      Editor.sendToPanel(
+        'undo-debugger.panel',
+        'undo-debugger:clear'
+      );
     }
   },
 

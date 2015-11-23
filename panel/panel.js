@@ -35,6 +35,12 @@ Editor.registerPanel( 'undo-debugger.panel', {
     this.set( 'data.savePosition', info.savePosition );
   },
 
+  'undo-debugger:clear' () {
+    this.set( 'data.groups', [] );
+    this.set( 'data.position', -1 );
+    this.set( 'data.savePosition', -1 );
+  },
+
   _indexEqual ( index, position ) {
     return index === position;
   },

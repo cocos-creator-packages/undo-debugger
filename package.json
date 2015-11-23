@@ -28,7 +28,8 @@
         "undo-debugger:add-group",
         "undo-debugger:position-changed",
         "undo-debugger:save-position-changed",
-        "undo-debugger:clear-redo"
+        "undo-debugger:clear-redo",
+        "undo-debugger:clear"
       ]
     }
   }
