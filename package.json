@@ -10,8 +10,9 @@
   },
   "main": "main.js",
   "menus": {
-    "Developer/Undo Debugger": {
-      "message": "undo-debugger:open"
+    "i18n:MAIN_MENU.developer.title/Undo Debugger": {
+      "message": "undo-debugger:open",
+      "dev": true
     }
   },
   "panels": {
@@ -25,7 +26,11 @@
       "min-height": 200,
       "shortcuts": {},
       "messages": [
-        "undo-debugger:update-undos"
+        "undo-debugger:add-group",
+        "undo-debugger:position-changed",
+        "undo-debugger:save-position-changed",
+        "undo-debugger:clear-redo",
+        "undo-debugger:clear"
       ]
     }
   }
