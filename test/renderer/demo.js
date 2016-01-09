@@ -5,7 +5,7 @@ describe('demo', function () {
   Helper.runPanel( 'undo-debugger.panel' );
 
   it('is a demo', function (done) {
-    Helper.recv('undo-debugger:update-undos', {
+    Helper.send('undo-debugger:update-undos', {
       position: 1,
       savePosition: 0,
       groups: [
