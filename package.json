@@ -4,7 +4,7 @@
   "description": "An editor-framework app.",
   "author": "",
   "hosts": {
-    "editor-framework": "^0.3.16"
+    "editor-framework": "^0.4.0"
   },
   "dependencies": {
   },
