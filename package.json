@@ -9,7 +9,7 @@
   "dependencies": {
   },
   "main": "main.js",
-  "menus": {
+  "main-menu": {
     "i18n:MAIN_MENU.developer.title/Undo Debugger": {
       "message": "undo-debugger:open",
       "dev": true
