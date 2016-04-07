@@ -10,26 +10,26 @@ Editor.registerPanel( 'undo-debugger.panel', {
   },
 
   'panel-ready' () {
-    Editor.sendRequestToCore('undo-debugger:query', data => {
+    Editor.Ipc.sendToMain('undo-debugger:query', data => {
       this.set( 'data', data );
     });
   },
 
-  'undo-debugger:add-group' ( info ) {
+  'undo-debugger:add-group' ( event, info ) {
     this.push( 'data.groups', info.group );
     this.set( 'data.position', info.position );
     this.set( 'data.savePosition', info.savePosition );
   },
 
-  'undo-debugger:position-changed' ( info ) {
+  'undo-debugger:position-changed' ( event, info ) {
     this.set( 'data.position', info.position );
   },
 
-  'undo-debugger:save-position-changed' ( info ) {
+  'undo-debugger:save-position-changed' ( event, info ) {
     this.set( 'data.savePosition', info.savePosition );
   },
 
-  'undo-debugger:clear-redo' ( info ) {
+  'undo-debugger:clear-redo' ( event, info ) {
     this.splice( 'data.groups', info.position+1 );
     this.set( 'data.position', info.position+1 );
     this.set( 'data.savePosition', info.savePosition );

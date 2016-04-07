@@ -25,7 +25,7 @@ module.exports = {
       Editor.Panel.open('undo-debugger.panel');
     },
 
-    query ( reply ) {
+    query ( event ) {
       let undo = Editor.Undo._global;
       let result = {
         position: undo._position,
@@ -35,14 +35,14 @@ module.exports = {
         }),
       };
 
-      reply( result );
+      event.reply( result );
     },
 
-    changed ( type ) {
+    changed ( event, type ) {
       let undo = Editor.Undo._global;
 
       if ( type === 'commit' ) {
-        Editor.sendToPanel(
+        Editor.Ipc.sendToPanel(
           'undo-debugger.panel',
           'undo-debugger:add-group', {
             position: undo._position,
@@ -51,21 +51,21 @@ module.exports = {
           }
         );
       } else if ( type === 'undo' || type === 'redo' ) {
-        Editor.sendToPanel(
+        Editor.Ipc.sendToPanel(
           'undo-debugger.panel',
           'undo-debugger:position-changed', {
             position: undo._position,
           }
         );
       } else if ( type === 'save' ) {
-        Editor.sendToPanel(
+        Editor.Ipc.sendToPanel(
           'undo-debugger.panel',
           'undo-debugger:save-position-changed', {
             savePosition: undo._savePosition,
           }
         );
       } else if ( type === 'clear-redo' ) {
-        Editor.sendToPanel(
+        Editor.Ipc.sendToPanel(
           'undo-debugger.panel',
           'undo-debugger:clear-redo', {
             position: undo._position,
@@ -73,7 +73,7 @@ module.exports = {
           }
         );
       } else if ( type === 'clear' ) {
-        Editor.sendToPanel(
+        Editor.Ipc.sendToPanel(
           'undo-debugger.panel',
           'undo-debugger:clear'
         );
